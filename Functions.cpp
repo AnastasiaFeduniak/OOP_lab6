@@ -11,14 +11,26 @@ CAnimal::CAnimal()
 }
 CAnimal::CAnimal(double age, double weight, activity act) : age(age), weight(weight), act(act) {}
 
-double CAnimal::HowManyCalories() { return 0; }
+double CAnimal::HowManyCalories()
+{
+	double calories = 0;
+	calories = 50 * weight + 2 * age;
+	switch (act)
+	{
+	case activity::low: calories *= 1.2; break;
+	case activity::medium: calories *= 1.4; break;
+	case activity::high: calories *= 1.6; break;
+	default: calories *= 1.4; break;
+	}
+	return calories;
+}
 double CAnimal::getAge() { return age; }
 double CAnimal::getWeight() { return weight; }
 void CAnimal::setAge(double a) { age = a; }
 void CAnimal::setWeight(double w) { weight = w; }
 activity CAnimal::getActivity() { return act; }
 void CAnimal::setActivity(activity a) { act = a; }
-string CAnimal::show() const
+string CAnimal::show()const
 {
 	string a = "Age: " + to_string(age) + "\n" + "Weight: " + to_string(weight) + "\n" + "Activity: " + activ[static_cast<int>(act)] + "\n";
 	//cout << "Age: " << age << endl << "Weight: " << weight << endl << "Activity: " << activ[static_cast<int>(act)] << endl;
@@ -132,3 +144,9 @@ string CHorse::PrintName()
 	string a = "CHorse";
 	return a;
 }
+double CDog::getAge() { return age; }
+double CDog::getWeight() { return weight; }
+void CDog::setAge(double a) { age = a; }
+void CDog::setWeight(double w) { weight = w; }
+activity CDog::getActivity() { return act; }
+void CDog::setActivity(activity a) { act = a; }
