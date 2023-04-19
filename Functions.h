@@ -132,6 +132,12 @@ public:
 	dogBreed getBreed();
 	virtual string show() const;
 	virtual string PrintName();
+	double getAge();
+	double getWeight();
+	void setAge(double a);
+	void setWeight(double w);
+	activity getActivity();
+	void setActivity(activity a);
 };
 
 
